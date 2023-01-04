@@ -90,3 +90,12 @@ target/
 
 # Credentials
 credentials.txt
+
+# Latex
+*.lot
+*.lof
+*.fls
+*.fdb_latexmk
+*.aux
+*.synctex.gz
+*.toc
