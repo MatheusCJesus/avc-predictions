@@ -99,3 +99,8 @@ credentials.txt
 *.aux
 *.synctex.gz
 *.toc
+
+# Models log
+notebooks/2_lstm
+notebooks/1_layer_lstm
+notebooks/logs

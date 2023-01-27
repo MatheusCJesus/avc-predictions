@@ -397,6 +397,7 @@
     \begin{siglas}
         \item[TCC] Trabalho de Conclusão de Curso
         \item[UNESP] Universidade Estadual Paulista
+        \item[IA] Inteligência Artificial
     \end{siglas}
     
     %------------------------------------------------------------------------------------%
@@ -440,26 +441,252 @@
     %------------------------------------------------------------------------------------%
     
     \chapter{Introdução}
-    Deep Learning é uma área de estudo muito importante e legal.
+    Os últimos séculos foram marcados por períodos de intensos desenvolvimentos tecnológicos, sendo impulsionados
+    pelas revoluções industriais. As indústrias são responsáveis por produzir a maior
+    parte dos produtos essenciais para os seres humanos, bem como o desenvolvimento de novos produtos.
+    Para a produção de carros cada vez mais potentes, escalas enormes de alimentos, dispositivos digitais, produtos farmacêuticos
+    é necessária a produção de energia para o funcionamento das máquinas das indústrias, automóveis para o transporte de cargas e pessoas,
+    e atender as populações das cidades e do campo.
 
-    \begin{enumerate}
-        \item uma coisa
-        \begin{itemize}
-            \item outra coisa
-        \end{itemize}
-        \item tres coisas
-    \end{enumerate}
+    No entanto, de acordo com a \cite[]{iea} a matriz energética mundial é majoritariamente
+    composta por fontes de energia não renováveis e altamente poluentes, como os combustíveis
+    fósseis, sendo eles, carvão mineral, petróleo e gás natural. 
+    Diante do consumo constante dessas matrizes energéticas os níveis de poluentes na atmosfera
+    passaram a aumentar. E com isso a necessidade de realizar estudos para entender a influencia
+    desses poluentes na saúde humana.
+
+    Segundo a \cite[]{diretrizes_oms} uma estimativa realizada em 2021 aponta que a cada ano, a exposição
+    à poluição atmosférica seja responsável por 7 milhões de mortes prematuras e milhões de anos de vida
+    reduzidos de pessoas com uma vida saudável em todo o mundo. Outro agravante relacionado a poluição é o aumento
+    temperatura média do planeta que segundo a \cite[]{temperatura_onu} em 2021 a temperatura média do planeta foi de 1,1\degree C acima
+    da linha base pré-industrial. Diante dessa situação, \cite[]{pneumonia_temperatura} apontam que as altas e baixas temperaturas
+    estão associadas com o aumento da incidência de casos de pneumonia e que as altas variações de temperatura diurnas e entre dias
+    podem afetar o funcionamento do sistema respiratório.
+
+    Diante desse contexto, a demanda dos serviços de saúde estão cada vez maiores e situações em que os serviços operam acima da capacidade
+    máxima estão cada vez mais frequentes. Conforme apresentado por \cite[]{Health} os sistemas e serviços de saúde necessitam de recursos essenciais
+    para atuar, incluindo informações hospitalares, doenças e previsões. No entanto, de acordo com \cite[]{forcasting_health}, os hospitais, serviços de saúde
+    e fornecedores geralmente não estão adequadamente informados quando entram em uma situação de demanda acima do normal.
     
-    Será abordado no corpo do texto desse template um guia de como redigir seu trabalho utilizando as Diretrizes da Biblioteca, que podem ser consultadas pelo site: \url{http://www2.feg.unesp.br/Home/Biblioteca21/diretrizes-2016.pdf}. É muito importante a leitura desse guia para elaboração de seu documento \LaTeX: Serão apresentados exemplos de citações, formatações de tabelas e figuras, estrutura de níveis de seção, formulas matemáticas, entre outros. É aconselhável não apagar essas dicas de seu documento durante a elaboração do seu trabalho! Utilize esse texto como guia durante toda elaboração de seu documento.
+    Este trabalho, reuniu dados e informações diárias relacionados a qualidade do ar, temperatura ambiente e internações ocorridas em hospitais
+    de Cuiabá no estado do Mato Grosso entre 01/01/2013 e 31/12/2018 para treinar modelos de \textit{Machine Learning} e redes neurais afim de predizer
+    o número de internações nos dias subsequentes a uma determinada data, utilizando como dados de entradas os valores de qualidade do ar
+    e temperatura. Os resultados dos diferentes modelos foram comparados, observando principalmente o raiz do erro quadrático médio(RMSE).
     
-    \chapter{Desenvolvimento}
+    \section{objetivos}
+    Este trabalho tem como objetivo utilizar técnicas de \textit{Machine Learning} e redes neurais artificiais a fim de predizer 
+    internações hospitalares de pacientes com doenças respiratórias
+    causadas por puluições atmosféricas.
+    \section{justificativas}
+    Na palaforma Scopus foram realizadas três pesquisas a fim de verificar o contexto de trabalhos
+    realizados na academia com temas semelhantes aos deste trabalho, conforme apresentado na Tabela \ref*{tabela scopus}.
+    Nota-se que para a pesquisa com as palavras chave: Machine learning, respiratory diseases e air quality 
+    foram publicados somente 66 artigos, isso mostra ser um tema que ainda não foi muito pesquisado, apesar de estar em crescimento.
+
+    Ao adicionar Cuiabá nas palavras chave da busca, não foi retornado nenhum resultado, isso indica que o trabalho realizado é inédito.
+
+    \begin{table}[h]
+        \centering
+        \caption{Publicações no Scopus}
+        \label{tabela scopus}
+        \begin{tabular}{ccc}
+            \hline
+            \multicolumn{1}{|c|}{Pesquisa} & \multicolumn{1}{c|}{Período} & \multicolumn{1}{c|}{Total de publicações}\\
+            \hline
+            "\textit{Machine Learning}" & 2012 - 2022 & 445203 \\
+            "\textit{Machine Learning}" e "Respiratory Diseases" & 2012 - 2022 & 2.264 \\
+            "\textit{Machine Learning}" e "Respiratory Diseases"  e "Air Quality" & 2012 - 2022 & 66 \\
+            \hline
+        \end{tabular}
+        \par
+        {\small fonte: Scopus (2023)}
+    \end{table}
+
+    \section{delimitações da pesquisa}
+    Ao decorrer do trabalho foram verificadas algumas limitações responsáveis por restringir o alcance do estudo.
+    Os dados utilizados para o treinamento dos modelos de \textit{Machine Learning} e (RNA) possuem 
+    colunas com informações sobre a qualidade do ar, temperatura, umidade e internações por doenças respiratórias. Os dados de qualidade
+    do ar são estimativas realisadas pelo SISAM para a cidade de Cuiabá-MT, assim considerou-se que todos os habitantes 
+    estão submetidos as mesma condições.
+
+    Ao considerar que todas as pessoas estão influênciadas pelas mesmas condições, desconsidera-se 
+    as condições de onde essas pessoas vivem e com o que elas trabalham. Por exemplo, uma pessoa que trabalhe em uma marcenaria
+    está sobre condições respiratórias piores do que outras pessoas e essa influência não foi levada em conta nos modelos por não possuir dados.
+
+    Os dados de internações representam apenas as internações ocorridas nos hospitais da rede pública (SUS). Dessa forma, todas as internações
+    por doenças respiratórias ocorridas na rede particular de hospitais não foram contabilizadas. Ainda, as informações das internações por doenças 
+    respiratórias são diagnosticadas pelos médicos e inseridas no sistema SIH/SUS, portanto pode haver algum engano ao ser inserida uma informação
+    errada no sistema.
+
+    \section{estrutura do trabalho}
+
+    \chapter{fundamentação teórica}
+    Neste capítulo foi escrita uma descrição resumida das ferramentas, técninas e conceitos utilizados
+    no desenvolvimento do trabalho.
+    \section{python e ciência de dados}
+    25/01
     
-        Vamos mostrar aqui alguns exemplos de citações e ilustrações que podem ser utilizadas no texto.
+    Python é uma linguagem de programação de computadores multiparadigma e de código aberto (\textit{open source}), 
+    que de acordo com \cite[]{learning_python} é ótimazada para programar de forma produtiva, ler e entender os códigos
+    com facilidade e qualidade de software.
+
+    Python é a linguagem mais utilizada do mundo segundo o rank da linguagens de \cite[]{PYPL} ganhando de Java, Java Script e C++. Essa liderança
+    explica a extensa comunidade que a linguagem possui, sendo isso uma vantagem para quem utiliza, uma vez que é possível encontrar milhares
+    de exemplos de código para uma possível aplicação que alguém precise.
+    
+    Uma ótima vantagem da linguagem é a íncrivel quantidade de bibliotecas disponibilizadas pela comunidade para as mais variadas aplicações. Isso
+    torna o Python uma ótima ferramenta para trabalhar com inteligência artificial, \textit{Machine Learning} e \textit{deep learning}. Algumas das principais
+    bibliotecas e \textit{frameworks} utilizadas são Pandas e Numpy para a manipulação de dados, TensorFlow e Scikit Learning para
+    a contrução de modelos de \textit{Machine Learning}, como os que serão abordados nos capítulos \ref*{IA} e \ref*{LSTM}.
+    
+    \section{Inteligência artificial no contexto da saúde}
+    \label{IA}
+    25/01
+
+    Inteligência artificial tem sido um assunto amplamente abordado pelas pessoas em vídeos, notícias e filmes. Muitos
+    acreditam que ela pode ser a solução para todos os problemas existentes na sociedade. No entanto, é importante
+    saber o que realmente é inteligência artificial e para o que ela realmente pode ser usada.
+
+    O professor \cite[]{IA_python} define em seu livro inteligência artificial como sendo uma área de estudo dentro ciências da computação
+    que possui o objetivo de fazer com que máquinas aprendam a interpretar e resolver problemas de maneira similar
+    ao ser humano. Da mesma forma que um ser humano, aprende ao tentar resolver problemas e obter novas informações, uma inteligência artificial
+    deve tomar uma ação a medida em que recebe novas informações e aprende a fim de melhorar sua performance.
+
+    Alguns exemplos de inteligência artificial presente no dia a dia de muitas pessoas são as assistentes virtuais
+    como a Alexa da Amazon e a Cortana da Microsoft, outro exemplo são as ferramentas de anúncio na internet que aprendem
+    com informações sobre os usuários e enviam anúncios de maior interesse. Mas como as IAs, estam relacionadas 
+    com a saúde das pessoas e os serviços de assistência médica?
+    
+    De acordo com Trishan Panch: 
+    \vspace{1.5pt}
+            \begin{flushright}
+                \begin{minipage}{.724\textwidth}
+                    {\SingleSpacing\small
+                    A Inteligência Artificial e o aprendizado de máquina têm o potencial de ser o catalisador da transformação
+dos sistemas de saúde para melhorar a eficiência e a eficácia, criar margem
+para a cobertura universal de saúde e melhorar os resultados. \cite[p.1]{IA_health_systems}
+                    }
+                \end{minipage}
+            \end{flushright}
+            \vspace{1.5pt}
+
+    Nos sistemas de saúde existem processos que podem utilizar IAs. Dois exemplos são segundo \cite[]{IA_health_systems}
+    o diagnóstico de doenças dos pacientes, realizando uma tarefa de classificação, se está ou não com a doença. O outro processo
+    se da durante o tratamento, envolvendo predição de uma melhora ou piora no quadro do paciente, monitorando os dados vitais. Algumas das
+    aplicações existentes foram apresentadas na tabela \ref*{tabela aplicações IA Med}.
+
+    \begin{table}[h]
+        \centering
+        \caption{Aplicações de IAs na medicina}
+        \label{tabela aplicações IA Med}
+        \begin{tabular}{cc}
+            \hline
+            \multicolumn{1}{|c|}{Diagnóstico} & \multicolumn{1}{c|}{Prognóstico e predição}\\
+            \hline
+            Analise de imagem: Mamografia & Hospitalização por doença cardíaca\\
+            Analise de sinais: Monitoramento intraparto & Risco de acidente cardiovascular\\
+            Analise de imagem: identificação da retinopatia diabética& Predição de resultados em câncer colorretal\\
+            \hline
+        \end{tabular}
+        \par
+        {\small fonte: Adaptado de \cite[]{IA_health_systems}}
+    \end{table}
+
+    Diante disso, é notavel que as IAs podem contribuir para melhorar os serviços de saúde, impactando a vida
+    de milhares de pessoas. A seguir serão abordadas algumas técnicas de aprendizado de maquinas utilizadas neste trabalho.
+    \subsection{\textit{Machine Learning}}
+    26/01
+
+
+    \subsubsection{\textit{Decision Trees}}
+    26/01
+    
+    Árvores de decisão (\textit{Decision Trees}) são algoritmos de \textit{machine learning} muito versáteis, que podem ser utilizados
+    tanto para resolver problemas de classificação quanto de regressão.
+    Como o próprio nome diz as \textit{Decision Trees} possuem uma estrutura hierarquia em árvore, contendo o nó raiz (\textit{root node}),
+    as ramificações, nós de decisão (\textit{decision nodes}) e as folhas (\textit{leaf nodes}). Uma estrutura simples desse algoritmo
+    está apresentada na \ref*{estrutura_decision_tree}.
+
+    \begin{figure}[h]
+        \centering
+        \caption{Estrutura das árvores de decisão}
+        \includegraphics[width=16cm]{../reports/figures/decision_tree_exemple.png}
+        \label{estrutura_decision_tree}
+        \par
+        {\small fonte: Produção do próprio autor.}
+    \end{figure}
+
+    O modelo de \textit{Decision Trees} utilizado nesse trabalho realizou uma tarefa de regressão, ou seja, uma \textit{Regresion Tree}, nessa variação 
+    todos os nós da árvore possuem valores numéricos. Imaginando um conjunto de pontos (x, y), O primeiro passo para montar a ávore é obter o 
+    nó raiz, ele é encontrado ao calcular iterativamente para o valor médio entre dois x adjacentes o erro quadrático médio (MSE) com a média
+    dos valores de y a esquerda do ponto médio e a média dos valores de y a direita do ponto médio. O valor médio que obtiver o menor MSE
+    será o nó raiz da árvore.
+
+    Para finalizar todo o processo de construção o processo é repetido para o lado esquerdo do nó raiz e para o lado direito até que não sobrem mais
+    valores possíveis para as folhas.
+
+    \subsubsection{Random Forest}
+    26/01
+
+    
+    \subsubsection{Cross Validation}
+    26/01
+
+    \section{Redes neurais recorrentes}
+    27/01
+    \section{previsão de séries temporais no contexto da saúde}
+    \label{LSTM}
+    27/01
+    \subsection{Long short term memories}
+    27/01
+    \section{Métricas para avaliar os modelos de regressão}
+    27/01
+    \subsection{Raiz do erro quadrático médio}
+    27/01
+    \subsection{Erro médio absoluto}
+    27/01
+    \chapter{materiais e métodos}
+
+    \section{Descrição do problema}
+    28/01
+
+    Escolha da cidade de Cuiabá
+    Numero de hanitantes
+    queimadas na cidade
+
+    explicar os principais poluentes utilizados nos modelos
+    \section{Obtenção dos dados}
+    28/01
+
+    Quantidade de dados
+    filtragem dos dados
+    tratamento dos dados nulos
+    \section{Modelagem do problema}
+    28/01
+
+    temperatura, umidade, pm25
+    temperatura, umidade, pm25, oxonio
+    \chapter{Análise dos resultados obtidos}
+    28/01
+
+
+    
+        
+
+        \begin{enumerate}
+            \item uma coisa
+            \begin{itemize}
+                \item outra coisa
+            \end{itemize}
+            \item tres coisas
+        \end{enumerate}
 
     \chapter{Conclusão}
+    28/01
     
         Deve ser fundamentada no texto, contendo deduções lógicas e correspondentes aos objetivos propostos.
-    
+        
+        Responder os objetivos
     %------------------------------------------------------------------------------------%
     %                               P Ó S   T E X T U A L                                %
     %                                                                                    %
