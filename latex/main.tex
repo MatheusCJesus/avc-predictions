@@ -79,7 +79,7 @@
     
     %Título do presente trabalho:
     \newcommand{\tituloDoTrabalho}{
-    Técnicas de \textit{Machine Learning} para estimar a correlação de queimadas em Cuiabá nas doenças respiratórias.
+        Técnicas de \textit{Machine Learning} para estimar o número de internados com doenças respiratórias utilizando dados de qualidade do ar.
     }
     
     % Subtítulo do presente trabalho, se houver:
@@ -123,7 +123,7 @@
     
     %Nome do Coordenador do Curso:
     \newcommand{\nomeDoCoordenador}{
-    Nome Completo do Coordenador
+    Daniel Julien Barros da Silva Sampaio
     }
     
     %Título do coordenador do Curso:
@@ -133,7 +133,7 @@
     
     %Nome do Membro Interno da Banca:
     \newcommand{\nomeDoMembroInterno}{
-    Nome Completo do Membro Interno
+    Taynara de Oliveira Castellões
     }
     
     %Título do Membro Interno da Banca:
@@ -143,7 +143,7 @@
     
     %Nome do membro Externo da banca:
     \newcommand{\nomeDoMembroExterno}{
-    Nome Completo do Membro Externo
+    Leonardo Mesquita
     }
     
     %Título do Membro Externo da Banca:
@@ -246,19 +246,10 @@
         \vspace*{1cm}
         
         \begin{tabular}{ l p{7cm} }
-            \textbf{\MakeUppercase{Nascimento}} & Data - Cidade / Sigla do Estado \\
+            \textbf{\MakeUppercase{Nascimento}} & 09/11/1999 - São José dos Campos / SP \\
             \\
             \textbf{\MakeUppercase{Filiação}} & Antonio Sergio de Jesus \\
             & Maria do Socorro Cerqueira de Jesus \\
-            \\
-            \textbf{\MakeUppercase{Ano Inicial / Ano Final}} & Formação acadêmica ou Complementar (nome do curso e titulação) \\
-            & Instituição de Ensino \\
-            \\
-            \textbf{\MakeUppercase{Ano Inicial / Ano Final}} & Formação acadêmica ou Complementar (nome do curso e titulação) \\
-            & Instituição de Ensino \\
-            \\
-            \textbf{\MakeUppercase{Ano Inicial / Ano Final}} & Formação acadêmica ou Complementar (nome do curso e titulação) \\
-            & Instituição de Ensino \\
         \end{tabular}
     \end{center}
     \newpage
@@ -759,9 +750,10 @@ para a cobertura universal de saúde e melhorar os resultados. \cite[p.1]{IA_hea
     erro quadárico médio (MSE) e raíz do erro quadárico médio (RMSE).
 
     \subsection{Erro quadrático médio}
-    O MSE é calculado pela seguinte equação: 
+    O MSE é calculado pela equação \ref*{mse}: 
 
     \begin{equation}
+        \label{mse}
         \sum_{i=1}^{D}(y_i-yhat_i)^2
     \end{equation}
 
@@ -770,16 +762,25 @@ para a cobertura universal de saúde e melhorar os resultados. \cite[p.1]{IA_hea
     será um número ainda maior.
     
     \subsection{Raiz do erro quadrático médio}
-    O RMSE é calculado pela seguinte equação: 
+    O RMSE é calculado pela equação \ref*{rmse}: 
 
     \begin{equation}
-        \sum_{i=1}^{D}(y_i-yhat_i)^2
+        \label{rmse}
+        \sqrt{\sum_{i=1}^{D}(y_i-yhat_i)^2}
     \end{equation}
-    \subsection{Erro médio absoluto}
     
+    Essa métrica é mais empregada para analisar a performance do modelo e gerar mostrar os resultados, enquanto o
+    MSE é utilizado como \textit{loss function}. Outro ponto importante é a unidade do erro que é a mesma do valor de saída.
+    \subsection{Erro médio absoluto}
+    O MAE é calculado pela equação \ref*{mae}: 
+
     \begin{equation}
+        \label{mae}
         \sum_{i=1}^{D}|x_i-y_i|
     \end{equation}
+
+    Diferentemente do MSE, essa métrica não intensifica o erro quanto maior ele for, mas varia linearmente com o aumento
+    ou diminuição do erro.
     
     \chapter{materiais e métodos}
 
