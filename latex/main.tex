@@ -598,8 +598,13 @@ para a cobertura universal de saúde e melhorar os resultados. \cite[p.1]{IA_hea
     26/01
 
 
+    .
+
+    .
+
+    .
+
     \subsubsection{\textit{Decision Trees}}
-    26/01
     
     Árvores de decisão (\textit{Decision Trees}) são algoritmos de \textit{machine learning} muito versáteis, que podem ser utilizados
     tanto para resolver problemas de classificação quanto de regressão.
@@ -626,25 +631,156 @@ para a cobertura universal de saúde e melhorar os resultados. \cite[p.1]{IA_hea
     valores possíveis para as folhas.
 
     \subsubsection{Random Forest}
-    26/01
 
+    O \textit{random forest} (floresta aleatória) é um algoritmo de machine learning do tipo aprendizagem 
+    supervisionada que pode ser utilizado tanto para resolver problemas de classificação quanto de regressão. 
+    Ele foi desenvolvido, com o intuito de resolver algumas desvantagens observadas nos modelos de decision trees.
     
-    \subsubsection{Cross Validation}
-    26/01
+    O conceito de florestas está na construção da \textit{random forest}, ela é construída realizando um agrupamento 
+    de \textit{decision trees} durante o treinamento, chamado de método \textit{ensemble}, ou seja, reúne a predição 
+    dos múltiplos algoritmos pela média, resultando em uma predição mais acurada do que apenas uma decision tree. 
+    Conforme apresentado na \ref*{estrutura_random_florest}:
 
-    \section{Redes neurais recorrentes}
+    \begin{figure}[h]
+        \centering
+        \caption{Estrutura da \textit{random florest}}
+        \includegraphics[width=16cm]{../reports/figures/random_forest.png}
+        \label{estrutura_random_florest}
+        \par
+        {\small fonte: Produção do próprio autor.}
+    \end{figure}
+    
+    O funcionamento do algoritmo ocorre da seguinte forma, primeiramente, deve-se escolher o número de árvores de decisão, 
+    então seleciona-se os dados de forma aleatória podendo haver repetições, repetindo o processo para o número de 
+    decison trees escolhido. Após isso, as árvores são construídas a partir dos dados aleatórios selecionados para cada uma,
+    por isso nomeia-se floresta aleatória.
+    \subsubsection{Cross Validation}
+    Existem diferentes modelos de \textit{machine learning} disponíveis que podem ser empregados na resolução de problemas, 
+    e diante dessas possibilidades aparecem algumas dúvidas:
+
+    \begin{itemize}
+        \item Qual modelo é melhor?
+        \item Qual modelo terá o melhor desempenho?
+        \item Qual será o mais estável ao receber \textit{inputs} inéditos?
+    \end{itemize}
+
+    Antes de realizar o treino e o teste do modelo é necessário preparar o conjunto de dados em que filtrar ruídos e tratar valores
+    nulos são exemplos de passos que podem ser aplicados. Após essa etapa, o conjunto de dados é randomizado
+    e divindo-o em teste e treino, de acordo com \cite[]{hands_on_ml} é comum dividir o conjunto de dados em 80\% treino
+    e 20\% teste, no entanto em casos que a quantidade de dados é massiva, diminuir o percentual dos dados de teste pode ser
+    uma boa prática.
+
+    Ao realizar esses passos será obtido um conjunto de acordo com a \ref*{exemplo_treino_teste}.
+
+    \begin{figure}[h]
+        \centering
+        \caption{Exemplo de um conjunto de treino e teste}
+        \includegraphics[width=5cm]{../reports/figures/treino_teste_exemplo.png}
+        \label{exemplo_treino_teste}
+        \par
+        {\small fonte: Produção do próprio autor.}
+    \end{figure}
+
+    Um possível problema dessa abordagem é a utilização de apenas a última parte do \textit{dataset} para o treino, isso porque,
+    mesmo que apresente um erro de generalização pequeno, ao colocar o modelo em produção dados completamente inéditos e diferentes
+    do conjunto de teste podem aparecer, mostrando que o modelo não generaliza tão bem quanto o esperado.
+
+    Uma solução para esse problema é a validação cruzada (\textit{cross validation}), uma técnica muito empregada para avaliar o desempenho de
+    modelos com relação a todo o conjunto de dados, a fim de verificar qual modelo obtem a melhor generalização.
+
+    A validação cruzada consiste em particionar o conjunto de dados em partes iguais, sendo a quantidade de partes escolhidas
+    arbitrariamente. A \ref*{exemplo_cross_val} exemplifica uma \textit{4-fold cross validation}, ou seja, o conjunto de dados
+    dividido em 4 partes. Os modelos são então treinados 4 vezes, variando a ordem das partições de treino e teste, ao final
+    faz-se a média do erro de generalização e verifica qual modelo mostrou ter o melhor desempenho em todo o conjunto de dados.
+    Esse será o melhor a ser utilizado.
+
+    \begin{figure}[h]
+        \centering
+        \caption{Exemplo do funcionamento da validação cruzada}
+        \includegraphics[width=10cm]{../reports/figures/cross_validation_example.png}
+        \label{exemplo_cross_val}
+        \par
+        {\small fonte: Produção do próprio autor.}
+    \end{figure}
+
+    \section{Redes neurais}
     27/01
+
     \section{previsão de séries temporais no contexto da saúde}
-    \label{LSTM}
-    27/01
-    \subsection{Long short term memories}
-    27/01
+    Uma série temporal, ou série histórica, é definida segundo \cite[]{series_temporais}
+    como uma sequência de dados obtidos em intervalos regulares durante um determinado período.
+    A série pode ser obtida tanto ao realizar medições por sensores, por exemplo, temperatura, pressão, 
+    tanto por contagens, por exemplo, o número de internações mensais por doenças respiratórias.
+
+    A previsão de séries temporais é utilizada no âmbito dos sistemas de saúde em diferentes contextos, como 
+    previsão de epidemias de doenças antigas e novas e previsão das demandas no sistema de sáude, por internações, atendimentos e cirurgias.
+    Conforme \cite[]{forcasting_health} os serviços de saúde geralmente estão mal informados 
+    e com recursos insuficientes para se adaptar a períodos como alta demanda, por isso, utilizar uma abordagem
+    de séries temporais, pode ser útil para promover melhores informações e ajudar em tomada de 
+    decisões mais eficientes por médicos e administradores do sistema de serviço de saúde.
+
+    \subsection{Long Short Term Memories}
+    As \textit{Long Short Term Memories} são um tipo específico de rede neural recorrente (RNN) que tem como objetivo
+    resolver o problema do \textit{explode/vanishing gradient} da RNN original. Para isso elas utilizam dois caminhos
+    diferentes para realizar uma predição, o caminho de memória curta \textit{short term} e o caminho de memória longa
+    \textit{long term}.
+
+    As LSTMs possuem uma unidade mais complicada do que as RNNs tradicionais, conforme apresentado na \ref*{lstm_unit}.
+    \begin{figure}[h]
+        \centering
+        \caption{Exemplo de uma unidade LSTM}
+        \includegraphics[width=16cm]{../reports/figures/LSTM_unit.png}
+        \label{lstm_unit}
+        \par
+        {\small fonte: Adaptado de \cite[]{statquest}.}
+    \end{figure}
+
+    As memórias de curto e longo prazo podem ser iniciadas com um valor arbitrário, geralmente sendo 0. Então, analisando
+    de forma sequencial, o primeiro bloco (azul) da unidade LSTM, é responsável por determinar quanto da memória de longo prazo será lembrada,
+    isso porque a saída desse bloco é uma função sigmoidal, portanto quando o dado de entrada soma-se a memória de curto prazo, são aplicados
+    na função sigmoidal resultando em um valor entre 0 e 1, esse primeiro bloco é chamado de \textit{forget gate}.
+    A próxima etapa de processamento da unidade são o conjunto de blocos verde e amarelo (\textit{input gate}), sendo a sua função calcular 
+    quanto um valor a ser somado na memória de longo prazo, o bloco verde gera a porcentagem a ser somada e o bloco amarelo
+    uma memória em potencial.
+    A última etapa da LSTM é o \textit{output gate}, ele relaciona a memória de curto prazo, a entrada e a memória de longo prazo
+    para produzir uma nova memória de curto prazo. A saída da LSTM \textit{unit} pode ser utilizada tanto para a predição do modelo ou para entrada para a próxima unidade
+    em uma rede neural artificial LSTM.
+
+    Resumindo, de acordo com \cite[]{hands_on_ml} as unidades LSTM aprendem a reconhecer entradas importantes da série temporal, 
+    armazenando-as na memória de longo prazo, para prezerva-lá por um certo tempo e assim, reutiliza-lá sempre que necessário. 
+    Essa estrutura robusta são o motivo da LSTM obter performances tão boas em detectar padrão de longo prazo 
+    em séries temporais, textos longos e gravações de áudio.
+
+
     \section{Métricas para avaliar os modelos de regressão}
-    27/01
+    Durante a estimativa dos parâmetros de um modelo de regressão, é necessária a utilização de métricas
+    para a validação da sua performance. Nesse contexto, as métricas que mais utilizadas são as relacionadas
+    ao erro entre a predição e o valor esperado, sendo algumas métricas, erro médio absoluto (MAE), percentual do erro médio absoluto (MAPE), 
+    erro quadárico médio (MSE) e raíz do erro quadárico médio (RMSE).
+
+    \subsection{Erro quadrático médio}
+    O MSE é calculado pela seguinte equação: 
+
+    \begin{equation}
+        \sum_{i=1}^{D}(y_i-yhat_i)^2
+    \end{equation}
+
+    Analisando a equação percebe-se que como o erro está elevado ao quadrado nunca haverá um valor negativo e
+    um outro efeito dessa métrica é punir o modelo quanto maior for o erro, uma vez que, um número grande elevado ao quadrado
+    será um número ainda maior.
+    
     \subsection{Raiz do erro quadrático médio}
-    27/01
+    O RMSE é calculado pela seguinte equação: 
+
+    \begin{equation}
+        \sum_{i=1}^{D}(y_i-yhat_i)^2
+    \end{equation}
     \subsection{Erro médio absoluto}
-    27/01
+    
+    \begin{equation}
+        \sum_{i=1}^{D}|x_i-y_i|
+    \end{equation}
+    
     \chapter{materiais e métodos}
 
     \section{Descrição do problema}
@@ -668,18 +804,6 @@ para a cobertura universal de saúde e melhorar os resultados. \cite[p.1]{IA_hea
     temperatura, umidade, pm25, oxonio
     \chapter{Análise dos resultados obtidos}
     28/01
-
-
-    
-        
-
-        \begin{enumerate}
-            \item uma coisa
-            \begin{itemize}
-                \item outra coisa
-            \end{itemize}
-            \item tres coisas
-        \end{enumerate}
 
     \chapter{Conclusão}
     28/01

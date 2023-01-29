@@ -16,6 +16,18 @@ Dispon{\'\i}vel em:
 {CARBONNELLE, P. \textbf{PYPL PopularitY of Programming Language}. 2023.
 Dispon{\'\i}vel em: \url{https://pypl.github.io/PYPL.html}.}
 
+\bibitem[Géron 2022]{hands_on_ml}
+\abntrefinfo{Géron}{GéRON}{2022}
+{GéRON, A. \textbf{Hands-On Machine Learning with Scikit-Learn, Keras, and
+  TensorFlow, 3rd Edition}. Sebastopol, Califórnia - EUA: O'REILLY, 2022.}
+
+\bibitem[Latorre e Cardoso 2001]{series_temporais}
+\abntrefinfo{Latorre e Cardoso}{LATORRE; CARDOSO}{2001}
+{LATORRE, M. do~Rosário Dias~de O.; CARDOSO, M. R.~A. Análise de séries
+  temporais em epidemiologia: uma introdução sobre os aspectos
+  metodológicos.
+\textbf{Rev. Bras. Epidemiol.}, v.~4, n.~147, p. 145 -- 152, 2001.}
+
 \bibitem[Lutz 2013]{learning_python}
 \abntrefinfo{Lutz}{LUTZ}{2013}
 {LUTZ, M. \textbf{Learning Python, 5th Edition}. Sebastopol, Califórnia - EUA:
@@ -33,6 +45,13 @@ Dispon{\'\i}vel em: \url{https://pypl.github.io/PYPL.html}.}
   in london: an application of quantile regression models.
 \textbf{International Journal of Biometeorology}, v.~1, n.~2, p. 1 -- 11,
   2012.}
+
+\bibitem[Starmer 2022]{statquest}
+\abntrefinfo{Starmer}{STARMER}{2022}
+{STARMER, S. with J. \textbf{Long Short-Term Memory (LSTM), claramente
+  explicado}. 2022.
+Dispon{\'\i}vel em:
+  \url{https://www.youtube.com/watch?v=YCzL96nL7j0&list=PLblh5JKOoLUICTaGLRoHQDuF\_7q2GfuJF&index=84&t=580s}.}
 
 \bibitem[Unidas 2021]{diretrizes_oms}
 \abntrefinfo{Unidas}{UNIDAS}{2021}
