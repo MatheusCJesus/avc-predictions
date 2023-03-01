@@ -16,10 +16,29 @@ Dispon{\'\i}vel em:
 {CARBONNELLE, P. \textbf{PYPL PopularitY of Programming Language}. 2023.
 Dispon{\'\i}vel em: \url{https://pypl.github.io/PYPL.html}.}
 
+\bibitem[Grosso 2017]{queimadas_cuiaba}
+\abntrefinfo{Grosso}{GROSSO}{2017}
+{GROSSO, G. do M. \textbf{Queimadas deixam situação do ar crítica em
+  Cuiabá}. 2017.
+Dispon{\'\i}vel em:
+  \url{http://www.mt.gov.br/-/8185483-queimadas-deixam-situacao-do-ar-critica-em-cuiaba}.}
+
 \bibitem[Géron 2022]{hands_on_ml}
 \abntrefinfo{Géron}{GéRON}{2022}
 {GéRON, A. \textbf{Hands-On Machine Learning with Scikit-Learn, Keras, and
   TensorFlow, 3rd Edition}. Sebastopol, Califórnia - EUA: O'REILLY, 2022.}
+
+\bibitem[IBGE 2023]{ibge}
+\abntrefinfo{IBGE}{IBGE}{2023a}
+{IBGE. \textbf{Cidades e Estados: Cuiabá}. 2023.
+Dispon{\'\i}vel em:
+  \url{https://www.ibge.gov.br/cidades-e-estados/mt/cuiaba.html}.}
+
+\bibitem[IBGE 2023]{ibge_mais}
+\abntrefinfo{IBGE}{IBGE}{2023b}
+{IBGE. \textbf{Cuiabá}. 2023.
+Dispon{\'\i}vel em:
+  \url{https://cidades.ibge.gov.br/brasil/mt/cuiaba/panorama}.}
 
 \bibitem[Latorre e Cardoso 2001]{series_temporais}
 \abntrefinfo{Latorre e Cardoso}{LATORRE; CARDOSO}{2001}

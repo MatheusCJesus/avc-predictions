@@ -16,6 +16,7 @@
         \RequirePackage{afterpage}          %Inclusão de novas páginas em branco
         \DisemulatePackage{setspace}        %Personalização do espaçamento entre linhas
         \usepackage{csquotes}               %Citações diretas
+        \usepackage{tikz}          %Inclusão de figuras com posição absoluta
     
     %Pacotes configuráveis
 
@@ -70,31 +71,38 @@
     \renewcommand{\ABNTEXsubsubsubsectionfont}{\fontfamily{ptm}\fontshape{it}\selectfont}
     \renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
     
-    %Configuração das fontes do Sumário para cada nível
-    \renewcommand\cftchapterfont\textbf   
-    \renewcommand\cftsectionfont{\normalfont}%\uppercase
+    % Remove o negrito dos números no Sumário
+    \renewcommand\cftchapterpagefont{\normalfont}
+    \renewcommand\cftsubsectionpagefont{\normalfont}
+    
+    \renewcommand\cftchapterfont\textbf
+    \renewcommand\cftsectionfont{\normalfont}%\upperfootnotecase
     \renewcommand\cftsubsectionfont\textbf
     \renewcommand\cftsubsubsectionfont\normalfont 
     \renewcommand\cftparagraphfont{\normalfont\textit}
+
     
     %----------------------------------------------------------------------------------------%
     % C A P A   E   F O L H A   D E   R O S T O
     %----------------------------------------------------------------------------------------%
 
-    \preambulo{Trabalho de Graduação apresentado ao Conselho de Curso de Graduação em \nomeDoCurso da Faculdade de Engenharia do Campus de Guaratinguetá, Universidade Estatual Paulista, como parte dos requisitos para obtenção do diploma de Graduação em \nomeDoCurso.}
+    \preambulo{Trabalho de Graduação apresentado ao Conselho de Curso de Graduação em \nomeDoCurso da Faculdade de Engenharia e Ciências do Campus de Guaratinguetá, Universidade Estadual Paulista, como parte dos requisitos para obtenção do diploma de Graduação em \nomeDoCurso.}
     
     % CAPA ----------------------------------------------------------------------------------
     \renewcommand{\imprimircapa}{
+        \begin{tikzpicture}[remember picture,overlay,shift={(current page.north west)}]
+            \node[anchor=north west,xshift=2cm,yshift=-3.4cm]{\includegraphics{logo_unesp.png}};
+        \end{tikzpicture}
         \begin{capa}
             \center
             {\sffamily
                 \bfseries{
-                    \Large{
+                    \large{
                         UNIVERSIDADE ESTADUAL PAULISTA\par
                         "JÚLIO DE MESQUITA FILHO"\par
                     }
                 }
-                CAMPUS DE GUARATINGUETÁ
+                Faculdade de Engenharia e Ciências de Guaratinguetá
             }
             
             \vspace*{3cm}
@@ -103,7 +111,7 @@
     
             \vfill
                 \begin{center}
-                    {\bfseries{\normalsize{\tituloDoTrabalho: }}}\subtituloDoTrabalho
+                    {\bfseries{\normalsize{\tituloDoTrabalho }}}
                 \end{center}
             \vfill
             
@@ -122,7 +130,7 @@
             \vspace*{\fill}\vspace*{\fill}
             
             \begin{center}
-                {\bfseries\tituloDoTrabalho: }\subtituloDoTrabalho
+                {\bfseries\tituloDoTrabalho}
             \end{center}
             
             \vspace*{\fill}
@@ -133,7 +141,6 @@
                 \par
                 \vspace*{1cm}
                 Orientador: \tituloDoOrientador\nomeDoOrientador\par
-                Coorientador: \tituloDoCoorientador\NomeDoCoorientador
             \end{minipage}
             \vspace*{\fill}
 
@@ -144,6 +151,59 @@
             \vspace*{1cm}
         \end{center}
         \afterpage{\null\setcounter{page}{1}}
+    }
+
+    \newcommand{\imprimirfolhadeaprovacao}{
+        \begin{folhadeaprovacao}
+            \begin{tikzpicture}[remember picture,overlay,shift={(current page.north west)}]
+                \node[anchor=north west,xshift=2cm,yshift=-3cm]{\includegraphics{logo_unesp.png}};
+            \end{tikzpicture}
+            \begin{center}
+                {\sffamily
+                \bfseries{
+                    \large{
+                        UNIVERSIDADE ESTADUAL PAULISTA\par
+                        "JÚLIO DE MESQUITA FILHO"\par
+                    }
+                    }
+                    Faculdade de Engenharia e Ciências de Guaratinguetá
+                }
+            
+            \vspace*{3cm}
+                    
+            \normalsize{\textbf{\MakeUppercase\nomeDoAutor}}
+            
+            \vspace*{1cm}
+            
+        % {\setstretch{1.0}
+            \begin{framed}
+                ESTE TRABALHO DE GRADUAÇÃO FOI JULGADO ADEQUADO COMO PARTE DO REQUISITO PARA A OBTENÇÃO DO DIPLOMA DE \textbf{''GRADUADO(A) EM {\MakeUppercase\nomeDoCurso}''}
+                \par
+                \vspace*{1cm}
+                APROVADO EM SUA FORMA FINAL PELO CONSELHO DE CURSO DE GRADUAÇÃO EM {\MakeUppercase\nomeDoCurso}
+                \par
+                \vspace*{1cm}
+                \begin{flushright}
+                \tituloDoCoordenador {\MakeUppercase\nomeDoCoordenador}
+                \par
+                Coordenador
+                \end{flushright}
+        \end{framed}
+        % }
+        
+        \begin{flushleft}
+                \textbf{BANCA EXAMINADORA:}
+        \end{flushleft}
+        
+        \assinatura{\small \tituloDoOrientador \nomeDoOrientador \par Orientador/UNESP-FEG}
+        \assinatura{\small \tituloDoMembroInterno \nomeDoMembroInterno \par UNESP-FEG}
+        \assinatura{\small \tituloDoMembroExterno \nomeDoMembroExterno \par Membro Externo}
+        
+        \vfill
+        \mesDeEntrega, \anoDeEntrega
+            
+            \end{center}
+        \end{folhadeaprovacao}
     }
 
 \endinput
