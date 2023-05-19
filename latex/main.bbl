@@ -29,7 +29,7 @@ Dispon{\'\i}vel em:
 \bibitem[Géron 2022]{hands_on_ml}
 \abntrefinfo{Géron}{GéRON}{2022}
 {GéRON, A. \textbf{Hands-On Machine Learning with Scikit-Learn, Keras, and
-  TensorFlow, 3rd Edition}. Sebastopol, Califórnia - EUA: O'REILLY, 2022.}
+  TensorFlow, 3rd Edition}. Sebastopol: O'REILLY, 2022. 861~p.}
 
 \bibitem[IBGE 2023]{ibge}
 \abntrefinfo{IBGE}{IBGE}{2023a}
@@ -50,25 +50,38 @@ Dispon{\'\i}vel em:
 {LATORRE, M. do~Rosário Dias~de O.; CARDOSO, M. R.~A. Análise de séries
   temporais em epidemiologia: uma introdução sobre os aspectos
   metodológicos.
-\textbf{Rev. Bras. Epidemiol.}, v.~4, n.~147, p. 145 -- 152, 2001.}
+\textbf{Rev. Bras. Epidemiol.}, 2001.
+Dispon{\'\i}vel em:
+  \url{https://www.scielo.br/j/rbepid/a/KM9MndgpCGSnjSNDddSydCG/?lang=pt}.
+  Acesso em: 20 de jan. de 2023.}
 
 \bibitem[Lutz 2013]{learning_python}
 \abntrefinfo{Lutz}{LUTZ}{2013}
-{LUTZ, M. \textbf{Learning Python, 5th Edition}. Sebastopol, Califórnia - EUA:
-  O'REILLY, 2013.}
+{LUTZ, M. \textbf{Learning Python, 5th Edition}. Sebastopol: O'REILLY, 2013.
+  1600~p.}
+
+\bibitem[Organization 2010]{Health}
+\abntrefinfo{Organization}{ORGANIZATION}{2010}
+{ORGANIZATION, W.~H. \textbf{Health service delivery}. Genève: World Health
+  Organization, 2010. 50~p.}
 
 \bibitem[Panch, Szolovits e Atun 2018]{IA_health_systems}
 \abntrefinfo{Panch, Szolovits e Atun}{PANCH; SZOLOVITS; ATUN}{2018}
 {PANCH, T.; SZOLOVITS, P.; ATUN, R. Artificial intelligence, machine learning
   and health systems.
-\textbf{Journal of Global Health}, v.~8, n.~8, p. 1 -- 8, 2018.}
+\textbf{Journal of Global Health}, 2018.
+Dispon{\'\i}vel em:
+  \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6199467/}. Acesso em: 18 de
+  jan. de 2023.}
 
 \bibitem[Soyiri, Reidpath e Sarran 2012]{forcasting_health}
 \abntrefinfo{Soyiri, Reidpath e Sarran}{SOYIRI; REIDPATH; SARRAN}{2012}
 {SOYIRI, I.~N.; REIDPATH, D.~D.; SARRAN, C. Forecasting peak asthma admissions
   in london: an application of quantile regression models.
-\textbf{International Journal of Biometeorology}, v.~1, n.~2, p. 1 -- 11,
-  2012.}
+\textbf{International Journal of Biometeorology}, 2012.
+Dispon{\'\i}vel em:
+  \url{https://link.springer.com/article/10.1007/s00484-012-0584-0}. Acesso em:
+  17 de jan. de 2023.}
 
 \bibitem[Starmer 2022]{statquest}
 \abntrefinfo{Starmer}{STARMER}{2022}
@@ -88,26 +101,24 @@ Dispon{\'\i}vel em:
 
 \bibitem[Unidas 2022]{temperatura_onu}
 \abntrefinfo{Unidas}{UNIDAS}{2022}
-{UNIDAS, O. das N. \textbf{Temperatura média global tem 50% de chance de
+{UNIDAS, O. das N. \textbf{Temperatura média global tem 50\% de chance de
   exceder 1,5°C até 2026}. 2022.
 Dispon{\'\i}vel em:
   \url{https://brasil.un.org/pt-br/181236-temperatura-media-global-tem-50-de-chance-de-exceder-15degc-ate-2026\#:~:text=De\%20acordo\%20com\%20os\%20novos,\%2C\%20saltou\%20para\%20quase\%2050\%25.}
   Acesso em: 20 de jan. de 2023.}
 
-\bibitem[WHO 2010]{Health}
-\abntrefinfo{WHO}{WHO}{2010}
-{WHO. \textbf{Health service delivery}. Genève, Switzerland: World Health
-  Organization, 2010.}
-
 \bibitem[Xiao 2022]{IA_python}
 \abntrefinfo{Xiao}{XIAO}{2022}
 {XIAO, P. \textbf{Artificial Intelligence Programming with Python: From Zero to
-  Hero}. Hoboken, Nova Jersey - EUA: Wiley, 2022.}
+  Hero}. Hoboken: Wiley, 2022. 720~p.}
 
 \bibitem[Xu, Hu e Tong 2014]{pneumonia_temperatura}
 \abntrefinfo{Xu, Hu e Tong}{XU; HU; TONG}{2014}
 {XU, Z.; HU, W.; TONG, S. Temperature variability and childhood pneumonia: An
   ecological study.
-\textbf{Environmental Health}, v.~1, n.~8, p. 1 -- 8, 2014.}
+\textbf{Environmental Health}, Queensland, 2014.
+Dispon{\'\i}vel em:
+  \url{https://ehjournal.biomedcentral.com/articles/10.1186/1476-069X-13-51}.
+  Acesso em: 20 de jan. de 2023.}
 
 \end{thebibliography}

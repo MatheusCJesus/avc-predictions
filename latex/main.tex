@@ -56,6 +56,7 @@
     \usepackage{lscape}
     \usepackage{longtable}
     \usepackage{booktabs}
+    \usepackage{pdfpages}
     
 %----------------------------------------------------------------------------------------%
 % I N F O R M A Ç Õ E S   B Á S I C A S   S O B R E   O   T R A B A L H O
@@ -176,7 +177,8 @@
     
     \imprimircapa
     \imprimirfolhaderosto
-    
+
+    \includepdf[pages=-]{../reports/figures/ficha-catalografica-matheus.pdf}
     %------------------------------------------------------------------------------------%
     % F O L H A   D E   A P R O V A Ç Ã O
     %
@@ -185,55 +187,7 @@
     % dessa folha. Se possível, utilize um recurso de assinatura digital fornecido pela
     % ferramenta de edição de PDF, evitando assim a digitalização da folha toda.
     %------------------------------------------------------------------------------------%
-    \begin{folhadeaprovacao}
-        \begin{center}
-        
-        {\sffamily
-            \bfseries{
-                \Large{
-                    UNIVERSIDADE ESTADUAL PAULISTA\par
-                    "JÚLIO DE MESQUITA FILHO"\par
-                }
-            }
-            CAMPUS DE GUARATINGUETÁ
-        }
-        
-        \vspace*{3cm}
-                
-        \normalsize{\textbf{\MakeUppercase\nomeDoAutor}}
-        
-        \vspace*{1cm}
-        
-       % {\setstretch{1.0}
-        \begin{framed}
-            ESTE TRABALHO DE GRADUAÇÃO FOI JULGADO ADEQUADO COMO PARTE DO REQUISITO PARA A OBTENÇÃO DO DIPLOMA DE \textbf{"GRADUANDO EM {\MakeUppercase\nomeDoCurso}"}
-            \par
-            \vspace*{1cm}
-            APROVADO EM SUA FORMA FINAL PELO CONSELHO DE CURSO DE GRADUAÇÃO EM {\MakeUppercase\nomeDoCurso}
-            \par
-            \vspace*{1cm}
-            \begin{flushright}
-            \tituloDoCoordenador {\MakeUppercase\nomeDoCoordenador}
-            \par
-            Coordenador
-            \end{flushright}
-       \end{framed}
-      % }
-       
-       \begin{flushleft}
-            \textbf{BANCA EXAMINADORA:}
-       \end{flushleft}
-       
-       \assinatura{\small \tituloDoOrientador \nomeDoOrientador \par Orientador/UNESP-FEG}
-       \assinatura{\small \tituloDoMembroInterno \nomeDoMembroInterno \par UNESP-FEG}
-       \assinatura{\small \tituloDoMembroExterno \nomeDoMembroExterno \par UNESP-FEG}
-       
-       \vfill
-       \mesDeEntrega, \anoDeEntrega
-        
-        \end{center}
-    \end{folhadeaprovacao}
-    
+    \includepdf[pages=-]{../reports/figures/assinaturas.pdf}
     %------------------------------------------------------------------------------------%
     % D A D O S   C U R R I C U L A R E S
     % 
@@ -369,8 +323,8 @@
         
         \vspace*{0.5cm}
     
-        \noindent\textbf{\MakeUppercase{Palavras-Chave: }} Doenças Respiratórias. Poluentes Atmosféricos. Cuibá-MT.
-        Aprendizado de Máquina. Rede Neural Artificial.
+        \noindent\textbf{\MakeUppercase{Palavras-Chave: }} Doenças Respiratórias; Poluentes Atmosféricos; Cuibá-MT;
+        Aprendizado de Máquina; Rede Neural Artificial.
          
     
     \end{resumo}
@@ -405,8 +359,8 @@
         \vspace*{0.5cm}
         
         %Subistitua 'Keywords' pela palavra no idioma desejado, caso precise.
-        \noindent\textbf{\MakeUppercase{Keywords: }} Respiratory Diseases. Atmospheric Pollutants. Cuiabá-MT
-        Machine Learning. Artificial Neural Network.
+        \noindent\textbf{\MakeUppercase{Keywords: }} Respiratory Diseases; Atmospheric Pollutants; Cuiabá-MT;
+        Machine Learning; Artificial Neural Network.
     
     \end{resumo}
     
@@ -559,7 +513,7 @@
         \includegraphics[width=12cm]{../reports/figures/Scopus_Year_ML_RD_AQ.png}
         \label{scopus_year}
         \par
-        {\small fonte: Scopus (2023)}
+        {\small fonte: Scopus (2023).}
     \end{figure}
 
     Ao adicionar Cuiabá nas palavras chave da busca, não foi retornado nenhum resultado, isso indica que o trabalho realizado é inédito.
@@ -578,7 +532,7 @@
             \hline
         \end{tabular}
         \par
-        {\small fonte: Scopus (2023)}
+        {\small fonte: Scopus (2023).}
     \end{table}
 
     A \ref*{scopus_country} apresenta a distribuição de trabalhos acadêmicos por países, analisando-a verifica-se que o Brasil tem apenas um trabalho publicado
@@ -590,7 +544,7 @@
         \includegraphics[width=12cm]{../reports/figures/Scopus_Country_ML_RD_AQ.png}
         \label{scopus_country}
         \par
-        {\small fonte: Scopus (2023)}
+        {\small fonte: Scopus (2023).}
     \end{figure}
 
     \section{DELIMITAÇÕES DA PESQUISA}
@@ -693,7 +647,7 @@ para a cobertura universal de saúde e melhorar os resultados. \cite[p.1]{IA_hea
             \hline
         \end{tabular}
         \par
-        {\small fonte: Adaptado de \cite[]{IA_health_systems}}
+        {\small fonte: Adaptado de Panch (\citeyear{IA_health_systems}).}
     \end{table}
 
     Diante disso, é notavel que as IAs podem contribuir para melhorar os serviços de saúde, impactando a vida
@@ -826,7 +780,7 @@ para a cobertura universal de saúde e melhorar os resultados. \cite[p.1]{IA_hea
         \includegraphics[width=12cm]{../reports/figures/LSTM_unit.png}
         \label{lstm_unit}
         \par
-        {\small fonte: Adaptado de \cite[]{statquest}.}
+        {\small fonte: Adaptado de Starmer (\citeyear{statquest}).}
     \end{figure}
 
     As memórias de curto e longo prazo podem ser iniciadas com um valor arbitrário, geralmente sendo 0. Então, analisando
@@ -910,7 +864,7 @@ para a cobertura universal de saúde e melhorar os resultados. \cite[p.1]{IA_hea
             \hline
         \end{tabular}
         \par
-        {\small fonte: Adaptado de \cite[]{ibge}}
+        {\small fonte: Adaptado de IBGE (\citeyear{ibge}).}
     \end{table}
 
     Segundo dados do \cite[]{ibge_mais} 80,2\% dos domicílios possuem esgotamento
@@ -955,7 +909,7 @@ para a cobertura universal de saúde e melhorar os resultados. \cite[p.1]{IA_hea
         \includegraphics[width=12cm]{../reports/figures/interface_SISAM.png}
         \label{int_sisam}
         \par
-        {\small fonte: SISAM (2023)}
+        {\small fonte: SISAM (2023).}
     \end{figure}
 
     No sistema é possível escolher um período de até 1 ano, o estado e a cidade, as variáveis 
@@ -1004,7 +958,7 @@ para a cobertura universal de saúde e melhorar os resultados. \cite[p.1]{IA_hea
         \includegraphics[width=12cm]{../reports/figures/interface_datasus.png}
         \label{interface_datasus}
         \par
-        {\small fonte: Datasus (2023)}
+        {\small fonte: DATASUS (2023)}
     \end{figure}
 
     Após selecionar o botão enviar, uma lista de arquivos aparece para serem baixados e conforme a descrição acima foram
@@ -1016,7 +970,7 @@ para a cobertura universal de saúde e melhorar os resultados. \cite[p.1]{IA_hea
         \includegraphics[width=12cm]{../reports/figures/arquivos_datasus.png}
         \label{arquivos_datasus}
         \par
-        {\small fonte: Datasus (2023)}
+        {\small fonte: DATASUS (2023)}
     \end{figure}
 
     Os arquivos estão em formato .dbc, esse formato impossibilita manipular os arquivos pela ferramenta Pandas, por isso, 
